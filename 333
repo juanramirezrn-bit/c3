@@ -1,0 +1,32 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("1. Consulta\n2. Laboratorio\n3. Rayos X\n4. Farmacia\n5. Salir");
+        Console.WriteLine("Seleccione: ");
+        string op = Console.ReadLine();
+        
+        switch (op)
+        {
+            case "1":
+                Console.WriteLine("Precio: $50.000 | Espera: 20 min");
+                break;
+            case "2":
+                Console.WriteLine("Precio: $80.000 | Espera: 45 min");
+                break;
+            case "3":
+                Console.WriteLine("Precio: $120.000 | Espera: 30 min");
+                break;
+            case "4":
+                Console.WriteLine("Precio: Variable | Espera: 10 min");
+                break;
+            case "5":
+                Console.WriteLine("Saliendo...");
+                break;
+            default:
+                Console.WriteLine("Opción no válida");
+                break;
+        }
+    }
+}
