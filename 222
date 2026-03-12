@@ -1,0 +1,27 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine(" Sistema de Triaje de Urgencias ");
+        Console.Write("Ingrese la temperatura corporal (C): ");
+        double temperatura = double.Parse(Console.ReadLine());
+        Console.Write("Ingrese la presion sistolica (mmHg): ");
+        int presion = int.Parse(Console.ReadLine());
+        if (temperatura > 39 || presion > 180)
+        {
+            Console.WriteLine("Clasificación: ROJO (Crítico)");
+            Console.WriteLine("Recomendación: Atencion inmediata en sala de reanimacion.");
+        }
+        else if (temperatura > 38 || presion > 140)
+        {
+            Console.WriteLine("Clasificación: AMARILLO (Urgente)");
+            Console.WriteLine("Recomendación: Valoración médica en menos de 30 minutos.");
+        }
+        else
+        {
+            Console.WriteLine("Clasificacion: VERDE (Estable)");
+            Console.WriteLine("Recomendacion: Puede esperar turno o acudir a consulta externa.");
+        }
+    }
+}
