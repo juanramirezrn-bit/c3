@@ -1,0 +1,50 @@
+using System;
+
+namespace CalculoNomina
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Cuantos empleados va a registrar? ");
+            int numEmpleados = int.Parse(Console.ReadLine());
+
+            double[,] datosEmpleados = new double[numEmpleados, 1];
+            double[] salariosNetos = new double[numEmpleados];
+
+            Console.WriteLine("\n=== Ingreso de Datos de Nómina ===");
+
+            for (int i = 0; i < numEmpleados; i++)
+            {
+                Console.WriteLine($"\nEmpleado #{i + 1}:");
+                Console.Write("  Ingrese Salario Base: ");
+                datosEmpleados[i, 0] = double.Parse(Console.ReadLine());
+                salariosNetos[i] = datosEmpleados[i, 0];
+            }
+            Console.Clear();
+            Console.WriteLine("==================================================");
+            Console.WriteLine("         REPORTE DE SALARIOS NETOS");
+            Console.WriteLine("==================================================");
+            Console.WriteLine("ID\t\tSalario Neto");
+            Console.WriteLine("--------------------------------------------------");
+
+            for (int i = 0; i < numEmpleados; i++)
+            {
+                if (salariosNetos[i] < 2000000)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+                else
+                {
+                    Console.ResetColor();
+                }
+
+                Console.WriteLine($"Emp {i + 1}\t\t{salariosNetos[i]:C0}");
+            }
+
+            Console.ResetColor();
+            Console.WriteLine("\nPresione cualquier tecla para salir...");
+            Console.ReadKey();
+        }
+    }
+}
