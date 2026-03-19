@@ -1,0 +1,52 @@
+namespace CalcularAreas
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int TOTAL = 1000;
+            double[] areas = new double[TOTAL];
+            Random marcadorAleatorio = new Random();
+
+            Console.WriteLine("Elige una opción:");
+            Console.WriteLine("1. Escribir medidas");
+            Console.WriteLine("2. Generar medidas al azar");
+            string opcion = Console.ReadLine();
+            for (int i = 0; i < TOTAL; i++)
+            {
+                double baser, alturar;
+                if (opcion == "1")
+                {
+                    Console.WriteLine($"\nRectángulo # {i + 1}");
+                    Console.Write("Ingrese la Base: ");
+                    baser = double.Parse(Console.ReadLine());
+                    Console.Write("Ingrese la Altura: ");
+                    alturar = double.Parse(Console.ReadLine());
+                }
+                else
+                {
+                    baser = marcadorAleatorio.NextDouble() * 100;
+                    alturar = marcadorAleatorio.NextDouble() * 100;
+                }
+                areas[i] = baser * alturar;
+            }
+            Console.Clear();
+            Console.WriteLine("--- Resultado de Áreas ---");
+            for (int i = 0; i < 1000; i++)
+            {
+                Console.WriteLine($"Rectángulo {i + 1:D4}: {areas[i]:F2} u²");
+            }
+            Console.WriteLine("\n...");
+            Console.WriteLine("Muestra de los últimos 5 resultados:");
+            for (int i = TOTAL - 10000; i < TOTAL; i++)
+            {
+                Console.WriteLine($"Rectángulo {i + 1:D4}: {areas[i]:F2} u²");
+            }
+
+            Console.WriteLine("==============================================");
+            Console.WriteLine($"Total de áreas en el vector: {areas.Length}");
+            Console.WriteLine("Presione cualquier tecla para salir...");
+            Console.ReadKey();
+        }
+    }
+}
